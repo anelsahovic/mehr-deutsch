@@ -1,17 +1,13 @@
-import { Link, Outlet } from 'react-router';
+import { Outlet } from 'react-router';
+import Navigation from './Navigation';
 
 export default function Layout() {
   return (
     <div>
-      <nav className="flex gap-4">
-        <Link to="/">Home</Link>
-        <Link to="/noun-genders">Noun Genders</Link>
-      </nav>
+      <Navigation />
       <main>
         <Outlet />
       </main>
-
-      <footer>Footer</footer>
     </div>
   );
 }
