@@ -103,7 +103,7 @@ export default function MobileSidebar() {
           <SheetTitle className="text-2xl font-bold tracking-wide">
             Mehr Deutsch
           </SheetTitle>
-          <SheetDescription className="text-base text-gray-500 dark:text-gray-300">
+          <SheetDescription className="text-base text-gray-500 dark:text-gray-300 text-center flex justify-center items-center">
             Practice German Grammar
           </SheetDescription>
         </SheetHeader>

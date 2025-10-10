@@ -3,6 +3,8 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import NounGenders from './pages/NounGenders';
 import Practice from './pages/Practice';
+import About from './pages/About';
+import Help from './pages/Help';
 
 function App() {
   return (
@@ -15,8 +17,8 @@ function App() {
           <Route path="noun-genders" element={<NounGenders />} />
         </Route>
 
-        <Route path="about" element={<div>about</div>} />
-        <Route path="help" element={<div>help</div>} />
+        <Route path="about" element={<About />} />
+        <Route path="help" element={<Help />} />
       </Route>
     </Routes>
   );
