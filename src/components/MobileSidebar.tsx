@@ -26,63 +26,49 @@ import {
 import { Separator } from './ui/separator';
 import { useState, type ElementType } from 'react';
 import { Badge } from './ui/badge';
+import { practiceTopics } from '@/data/practiceTopics';
+import type { PracticeTopic } from '@/types/practice.types';
 
 export default function MobileSidebar() {
   const sidebarNavLinks = [
     {
-      label: 'Home',
+      title: 'Home',
       icon: House,
       path: '/',
       available: true,
     },
     {
-      label: 'Practice',
+      id: 401,
+      title: 'Practice Topics',
       icon: Brain,
-      collapsible: [
-        {
-          label: 'Noun Genders',
-          path: '/practice/noun-genders',
-          available: true,
-        },
-        {
-          label: 'Declensions',
-          path: '/practice/declensions',
-          available: false,
-        },
-        {
-          label: 'Prepositions',
-          path: '/practice/prepositions',
-          available: false,
-        },
-        { label: 'Sentences', path: '/practice/sentences', available: false },
-      ],
+      collapsible: practiceTopics,
     },
     {
-      label: 'About',
+      title: 'About',
       icon: Info,
       path: '/about',
       available: true,
     },
     {
-      label: 'Help',
+      title: 'Help',
       icon: HelpCircle,
       path: '/help',
       available: true,
     },
     {
-      label: 'My Profile',
+      title: 'My Profile',
       icon: User,
       path: '/my-profile',
       available: false,
     },
     {
-      label: 'Leaderboard',
+      title: 'Leaderboard',
       icon: Medal,
       path: '/leaderboard',
       available: false,
     },
     {
-      label: 'Settings',
+      title: 'Settings',
       icon: Settings,
       path: '/settings',
       available: false,
@@ -111,7 +97,7 @@ export default function MobileSidebar() {
         {/* Navigation Links */}
         <nav className="flex flex-col gap-2 overflow-y-scroll">
           {sidebarNavLinks.map((link) => (
-            <div key={link.label}>
+            <div key={link.title}>
               {link.collapsible ? (
                 <SidebarCollapsibleLink link={link} />
               ) : (
@@ -141,7 +127,7 @@ export default function MobileSidebar() {
 }
 
 interface LinkItem {
-  label: string;
+  title: string;
   icon?: ElementType;
   path: string;
   available: boolean;
@@ -166,7 +152,7 @@ function SidebarLink({ link, size = 'default' }: SidebarLinkProps) {
         aria-disabled="true"
       >
         {link.icon && <link.icon className={iconSizeClass} />}
-        <span>{link.label}</span>
+        <span>{link.title}</span>
         <Badge
           variant="outline"
           className="border-primary text-primary ml-auto"
@@ -190,16 +176,17 @@ function SidebarLink({ link, size = 'default' }: SidebarLinkProps) {
       }
     >
       {link.icon && <link.icon className={iconSizeClass} />}
-      <span>{link.label}</span>
+      <span>{link.title}</span>
     </NavLink>
   );
 }
 
 interface SidebarCollapsibleLinkProps {
   link: {
-    label: string;
+    id: number;
+    title: string;
     icon?: ElementType;
-    collapsible: LinkItem[];
+    collapsible: PracticeTopic[];
   };
 }
 
@@ -213,10 +200,10 @@ function SidebarCollapsibleLink({ link }: SidebarCollapsibleLinkProps) {
         className="flex items-center justify-between px-3 py-2 rounded-lg font-medium"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        {/* icon and label */}
+        {/* icon and title */}
         <div className="flex items-center gap-2">
           {link.icon && <link.icon className="size-5" />}
-          {link.label}
+          {link.title}
         </div>
 
         {/* chevron icon */}
@@ -239,7 +226,7 @@ function SidebarCollapsibleLink({ link }: SidebarCollapsibleLinkProps) {
         transition={{ duration: 0.4, ease: 'easeInOut' }}
       >
         {link.collapsible.map((subLink) => (
-          <SidebarLink key={subLink.label} link={subLink} size="sm" />
+          <SidebarLink key={subLink.title} link={subLink} size="sm" />
         ))}
       </motion.div>
     </div>

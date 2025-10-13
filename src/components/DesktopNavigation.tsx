@@ -1,12 +1,4 @@
-import {
-  Brain,
-  HelpCircle,
-  House,
-  Info,
-  Medal,
-  Settings,
-  User,
-} from 'lucide-react';
+import { Brain } from 'lucide-react';
 import { NavLink } from 'react-router';
 import { buttonVariants } from './ui/button';
 import { twMerge } from 'tailwind-merge';
@@ -19,71 +11,55 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from './ui/navigation-menu';
+import { practiceTopics } from '@/data/practiceTopics';
+import type { PracticeTopic } from '@/types/practice.types';
 
 export default function DesktopNavigation() {
   const navLinks = [
     {
-      label: 'Home',
-      icon: House,
+      id: 101,
+      title: 'Home',
       path: '/',
       available: true,
     },
     {
-      label: 'About',
-      icon: Info,
+      id: 102,
+      title: 'About',
       path: '/about',
       available: true,
     },
     {
-      label: 'Help',
-      icon: HelpCircle,
+      id: 103,
+      title: 'Help',
       path: '/help',
       available: true,
     },
   ];
 
-  const practiceLinks = [
-    {
-      label: 'Noun Genders',
-      path: '/practice/noun-genders',
-      available: true,
-    },
-    {
-      label: 'Declensions',
-      path: '/practice/declensions',
-      available: false,
-    },
-    {
-      label: 'Prepositions',
-      path: '/practice/prepositions',
-      available: false,
-    },
-    { label: 'Sentences', path: '/practice/sentences', available: false },
-  ];
-
   const soonLinks = [
     {
-      label: 'My Profile',
-      icon: User,
+      id: 104,
+      title: 'My Profile',
       path: '/my-profile',
       available: false,
     },
     {
-      label: 'Leaderboard',
-      icon: Medal,
+      id: 105,
+      title: 'Leaderboard',
       path: '/leaderboard',
       available: false,
     },
     {
-      label: 'Settings',
-      icon: Settings,
+      id: 106,
+      title: 'Settings',
       path: '/settings',
       available: false,
     },
   ];
+
   return (
-    <div className="p-4 flex justify-center w-full z-50">
-      <div className="flex items-center justify-between max-w-4xl w-full h-16 px-6 bg-white/70 shadow-xs backdrop-blur-xl rounded-sm border border-r-zinc-300">
+    <div className="p-4 flex justify-center w-full z-[9999]">
+      <div className="flex items-center justify-between max-w-4xl w-full h-16 px-6 bg-white/70 shadow-xs backdrop-blur-xl rounded-sm border border-r-zinc-300 z-[9999]">
         {/* Left div - logo */}
         <NavLink
           to="/"
@@ -105,15 +81,15 @@ export default function DesktopNavigation() {
           <NavbarLink size="default" link={navLinks[0]} />
 
           {/* practice dropdown links */}
-          <NavbarDropdown label="Practice" links={practiceLinks} />
+          <NavbarDropdown label="Topics" topics={practiceTopics} />
 
           {/* rest of the links */}
           {navLinks.slice(1).map((link) => (
-            <NavbarLink key={link.label} size="default" link={link} />
+            <NavbarLink key={link.id} size="default" link={link} />
           ))}
 
           {/* links that are soon available */}
-          <NavbarDropdown label="More" links={soonLinks} />
+          <NavbarDropdown label="More" topics={soonLinks} />
         </div>
 
         {/* Right div - action */}
@@ -132,14 +108,8 @@ export default function DesktopNavigation() {
   );
 }
 
-interface LinkItem {
-  label: string;
-  path: string;
-  available: boolean;
-}
-
 interface NavbarLinkProps {
-  link: LinkItem;
+  link: PracticeTopic;
   size?: 'sm' | 'default';
 }
 
@@ -155,7 +125,7 @@ function NavbarLink({ link, size = 'default' }: NavbarLinkProps) {
         )}
         aria-disabled="true"
       >
-        <span>{link.label}</span>
+        <span className="whitespace-nowrap">{link.title}</span>
         <Badge
           variant="outline"
           className="border-primary text-primary ml-auto scale-90"
@@ -176,16 +146,16 @@ function NavbarLink({ link, size = 'default' }: NavbarLinkProps) {
         )
       }
     >
-      <span>{link.label}</span>
+      <span>{link.title}</span>
     </NavLink>
   );
 }
 
 interface NavbarDropdownProps {
   label: string;
-  links: LinkItem[];
+  topics: PracticeTopic[];
 }
-function NavbarDropdown({ label, links }: NavbarDropdownProps) {
+function NavbarDropdown({ label, topics }: NavbarDropdownProps) {
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -193,14 +163,14 @@ function NavbarDropdown({ label, links }: NavbarDropdownProps) {
           <NavigationMenuTrigger className="p-0 m-0 hover:cursor-pointer text-base font-medium">
             {label}
           </NavigationMenuTrigger>
-          <NavigationMenuContent className="bg-white/70 shadow flex flex-col gap-1">
-            {links.map((link) => (
+          <NavigationMenuContent className="bg-white/70 shadow flex flex-col gap-1 ">
+            {topics.map((topic) => (
               <NavigationMenuLink
                 asChild
-                key={link.label}
+                key={topic.id}
                 className="whitespace-nowrap"
               >
-                <NavbarLink size="sm" link={link} />
+                <NavbarLink size="sm" link={topic} />
               </NavigationMenuLink>
             ))}
           </NavigationMenuContent>
