@@ -18,7 +18,7 @@ export default function MobileNavigation() {
     {
       label: 'Practice',
       icon: Brain,
-      path: '/practice',
+      path: '/topics',
     },
     {
       label: 'Help',

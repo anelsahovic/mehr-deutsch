@@ -1,8 +1,8 @@
 import { Brain } from 'lucide-react';
 import { NavLink } from 'react-router';
-import { buttonVariants } from './ui/button';
+import { buttonVariants } from '../ui/button';
 import { twMerge } from 'tailwind-merge';
-import { Badge } from './ui/badge';
+import { Badge } from '../ui/badge';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,7 +10,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from './ui/navigation-menu';
+} from '../ui/navigation-menu';
 import { practiceTopics } from '@/data/practiceTopics';
 import type { PracticeTopic } from '@/types/practice.types';
 
@@ -94,7 +94,7 @@ export default function DesktopNavigation() {
 
         {/* Right div - action */}
         <NavLink
-          to="/practice"
+          to="/topics"
           className={twMerge(
             buttonVariants(),
             'rounded-[7px]  group max-w-[170px]'

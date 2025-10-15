@@ -22,10 +22,10 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from './ui/sheet';
-import { Separator } from './ui/separator';
+} from '../ui/sheet';
+import { Separator } from '../ui/separator';
 import { useState, type ElementType } from 'react';
-import { Badge } from './ui/badge';
+import { Badge } from '../ui/badge';
 import { practiceTopics } from '@/data/practiceTopics';
 import type { PracticeTopic } from '@/types/practice.types';
 
