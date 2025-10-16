@@ -41,9 +41,10 @@ export default function TopicInfoHeaderCard({ topic }: Props) {
         px-5 py-3 
         bg-white text-yellow-600 font-semibold 
         rounded-lg shadow-md 
+        active:scale-95
         hover:ring-2 hover:ring-yellow-400 hover:text-yellow-400
         focus:outline-none focus:ring-4 focus:ring-yellow-400 focus:ring-opacity-50 
-        transition-all duration-300
+        transition-all duration-300 
         select-none
       "
         >

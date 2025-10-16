@@ -24,3 +24,13 @@ export interface GenderData {
   color: 'blue' | 'rose' | 'green';
   data: NounData;
 }
+
+export interface Noun {
+  id: string;
+  word: string;
+  gender: 'der' | 'die' | 'das';
+  translation: string;
+  hint?: string;
+}
+
+export type Gender = 'der' | 'die' | 'das';
