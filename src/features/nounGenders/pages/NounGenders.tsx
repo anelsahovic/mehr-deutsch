@@ -1,7 +1,7 @@
 import MobilePageHeader from '@/components/MobilePageHeader';
 import NounGendersTheory from '@/features/nounGenders/components/NounGendersTheory';
 import TopicInfoHeaderCard from '@/components/TopicInfoHeaderCard';
-import { practiceTopics } from '@/data/practiceTopics';
+import { practiceTopics } from '@/data/constants';
 
 export default function NounGenders() {
   const topic = practiceTopics.find(

@@ -26,7 +26,7 @@ import {
 import { Separator } from '../ui/separator';
 import { useState, type ElementType } from 'react';
 import { Badge } from '../ui/badge';
-import { practiceTopics } from '@/data/practiceTopics';
+import { practiceTopics } from '@/data/constants';
 import type { PracticeTopic } from '@/types/practice.types';
 
 export default function MobileSidebar() {

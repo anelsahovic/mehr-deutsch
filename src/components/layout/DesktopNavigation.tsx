@@ -2,7 +2,6 @@ import { Brain } from 'lucide-react';
 import { NavLink } from 'react-router';
 import { buttonVariants } from '../ui/button';
 import { twMerge } from 'tailwind-merge';
-import { Badge } from '../ui/badge';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,52 +10,11 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '../ui/navigation-menu';
-import { practiceTopics } from '@/data/practiceTopics';
+import { navLinks, practiceTopics, soonLinks } from '@/data/constants';
 import type { PracticeTopic } from '@/types/practice.types';
+import { NavbarLink } from '../NavbarLink';
 
 export default function DesktopNavigation() {
-  const navLinks = [
-    {
-      id: 101,
-      title: 'Home',
-      path: '/',
-      available: true,
-    },
-    {
-      id: 102,
-      title: 'About',
-      path: '/about',
-      available: true,
-    },
-    {
-      id: 103,
-      title: 'Help',
-      path: '/help',
-      available: true,
-    },
-  ];
-
-  const soonLinks = [
-    {
-      id: 104,
-      title: 'My Profile',
-      path: '/my-profile',
-      available: false,
-    },
-    {
-      id: 105,
-      title: 'Leaderboard',
-      path: '/leaderboard',
-      available: false,
-    },
-    {
-      id: 106,
-      title: 'Settings',
-      path: '/settings',
-      available: false,
-    },
-  ];
-
   return (
     <div className="p-4 flex justify-center w-full z-[9999]">
       <div className="flex items-center justify-between max-w-4xl w-full h-16 px-6 bg-white/70 shadow-xs backdrop-blur-xl rounded-sm border border-r-zinc-300 z-[9999]">
@@ -81,7 +39,7 @@ export default function DesktopNavigation() {
           <NavbarLink size="default" link={navLinks[0]} />
 
           {/* practice dropdown links */}
-          <NavbarDropdown label="Topics" topics={practiceTopics} />
+          <NavbarDropdown label="Topics" links={practiceTopics} />
 
           {/* rest of the links */}
           {navLinks.slice(1).map((link) => (
@@ -89,7 +47,7 @@ export default function DesktopNavigation() {
           ))}
 
           {/* links that are soon available */}
-          <NavbarDropdown label="More" topics={soonLinks} />
+          <NavbarDropdown label="More" links={soonLinks} />
         </div>
 
         {/* Right div - action */}
@@ -108,54 +66,11 @@ export default function DesktopNavigation() {
   );
 }
 
-interface NavbarLinkProps {
-  link: PracticeTopic;
-  size?: 'sm' | 'default';
-}
-
-function NavbarLink({ link, size = 'default' }: NavbarLinkProps) {
-  const paddingClass = size === 'sm' ? 'px-2 py-1.5' : 'px-3 py-2';
-  const fontSizeClass = size === 'sm' ? 'text-sm' : 'text-base';
-
-  if (!link.available) {
-    return (
-      <div
-        className={twMerge(
-          `relative flex items-center gap-1 rounded-lg font-medium ${paddingClass} ${fontSizeClass} text-neutral-500 cursor-not-allowed select-none`
-        )}
-        aria-disabled="true"
-      >
-        <span className="whitespace-nowrap">{link.title}</span>
-        <Badge
-          variant="outline"
-          className="border-primary text-primary ml-auto scale-90"
-        >
-          Soon
-        </Badge>
-      </div>
-    );
-  }
-
-  return (
-    <NavLink
-      to={link.path}
-      className={({ isActive }) =>
-        twMerge(
-          `relative flex items-center gap-2 rounded-none font-medium transition-all duration-300 ${paddingClass} ${fontSizeClass}`,
-          isActive ? ' text-primary' : 'text-gray-800 hover:text-primary'
-        )
-      }
-    >
-      <span>{link.title}</span>
-    </NavLink>
-  );
-}
-
 interface NavbarDropdownProps {
   label: string;
-  topics: PracticeTopic[];
+  links: PracticeTopic[];
 }
-function NavbarDropdown({ label, topics }: NavbarDropdownProps) {
+function NavbarDropdown({ label, links }: NavbarDropdownProps) {
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -164,13 +79,13 @@ function NavbarDropdown({ label, topics }: NavbarDropdownProps) {
             {label}
           </NavigationMenuTrigger>
           <NavigationMenuContent className="bg-white/70 shadow flex flex-col gap-1 ">
-            {topics.map((topic) => (
+            {links.map((link) => (
               <NavigationMenuLink
                 asChild
-                key={topic.id}
+                key={link.id}
                 className="whitespace-nowrap"
               >
-                <NavbarLink size="sm" link={topic} />
+                <NavbarLink size="sm" link={link} />
               </NavigationMenuLink>
             ))}
           </NavigationMenuContent>

@@ -53,3 +53,45 @@ export const practiceTopics: PracticeTopic[] = [
     available: false,
   },
 ];
+
+export const navLinks = [
+  {
+    id: 101,
+    title: 'Home',
+    path: '/',
+    available: true,
+  },
+  {
+    id: 102,
+    title: 'About',
+    path: '/about',
+    available: true,
+  },
+  {
+    id: 103,
+    title: 'Help',
+    path: '/help',
+    available: true,
+  },
+];
+
+export const soonLinks = [
+  {
+    id: 104,
+    title: 'My Profile',
+    path: '/my-profile',
+    available: false,
+  },
+  {
+    id: 105,
+    title: 'Leaderboard',
+    path: '/leaderboard',
+    available: false,
+  },
+  {
+    id: 106,
+    title: 'Settings',
+    path: '/settings',
+    available: false,
+  },
+];

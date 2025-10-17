@@ -1,4 +1,4 @@
-import { practiceTopics } from '@/data/practiceTopics';
+import { practiceTopics } from '@/data/constants';
 import PracticeTopicCard from './PracticeTopicCard';
 
 export default function PracticeList() {
