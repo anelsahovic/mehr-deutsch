@@ -3,7 +3,7 @@ import { NavLink } from 'react-router';
 export default function About() {
   return (
     <>
-      <section className="flex flex-col items-center justify-center text-center w-full mx-auto max-w-3xl gap-6">
+      <section className="flex flex-col items-center justify-center text-center w-full mx-auto max-w-3xl gap-6 mt-10">
         <NavLink to="/" className="flex items-center justify-center gap-2">
           <img
             src="/images/mehr_deutsch_logo.png"
