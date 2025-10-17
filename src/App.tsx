@@ -10,21 +10,24 @@ import PracticeNounGenders from './features/nounGenders/pages/PracticeNounGender
 function App() {
   return (
     <Routes>
+      {/* Shared layout components */}
       <Route element={<Layout />}>
         <Route index element={<Home />} />
 
         <Route path="topics">
           <Route index element={<Topics />} />
           <Route path="noun-genders" element={<NounGenders />} />
-          <Route
-            path="noun-genders/practice"
-            element={<PracticeNounGenders />}
-          />
         </Route>
 
         <Route path="about" element={<About />} />
         <Route path="help" element={<Help />} />
       </Route>
+
+      {/* Standalone, layout-free route */}
+      <Route
+        path="/topics/noun-genders/practice"
+        element={<PracticeNounGenders />}
+      />
     </Routes>
   );
 }

@@ -75,7 +75,7 @@ export default function PracticeNounGenders() {
   };
 
   return (
-    <div className="min-h-[80dvh] sm:min-h-[70dvh] w-full flex flex-col  justify-between gap-6 p-6 ">
+    <div className="min-h-dvh w-full max-w-4xl mx-auto flex flex-col justify-between gap-6 p-6 py-10">
       {/* Dialog when completed level */}
       <AlertDialog
         open={openLevelCompletedDialog}
@@ -258,7 +258,7 @@ export default function PracticeNounGenders() {
             className="w-11 flex  justify-start "
             aria-label="Go back to noun genders"
           >
-            <MdClose className="size-6 text-gray-700" />
+            <MdClose className="size-6 text-gray-700 hover:text-red-500 transition-colors duration-300" />
           </NavLink>
 
           {/* Noun count */}
@@ -307,7 +307,7 @@ export default function PracticeNounGenders() {
       </div>
 
       {/* Gender selection buttons */}
-      <div className="flex justify-center gap-6 mt-6">
+      <div className="flex justify-center gap-6 pb-10">
         {(['der', 'die', 'das'] as Gender[]).map((gender) => (
           <GenderButton
             key={gender}
