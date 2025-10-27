@@ -95,3 +95,16 @@ export const soonLinks = [
     available: false,
   },
 ];
+
+export const DAILY_TIPS: string[] = [
+  'Speak a little German every day, even to yourself.',
+  'Watch German movies with subtitles, then without.',
+  'Build themed vocabulary lists for topics you love.',
+  'Write a daily journal entry in German—no matter how short.',
+  'Listen to German podcasts during your commute.',
+  'Find a language partner to chat weekly.',
+  'Label everyday items at home with their German names.',
+  'Try reading the news in simple German online.',
+  'Shadow native audio: repeat sentences just after hearing them.',
+  'Practice small talk: introduce yourself in different scenarios.',
+];
