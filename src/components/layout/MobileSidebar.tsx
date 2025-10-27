@@ -30,6 +30,8 @@ import { practiceTopics } from '@/data/constants';
 import type { PracticeTopic } from '@/types/practice.types';
 
 export default function MobileSidebar() {
+  const [open, setOpen] = useState(false);
+
   const sidebarNavLinks = [
     {
       title: 'Home',
@@ -75,11 +77,14 @@ export default function MobileSidebar() {
     },
   ];
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger>
         <Menu className="size-5 text-gray-100" />
       </SheetTrigger>
-      <SheetContent className=" bg-white px-4 py-6 rounded-l-lg shadow-xl">
+      <SheetContent
+        className=" bg-white px-4 py-6 rounded-l-lg shadow-xl"
+        side="right"
+      >
         <SheetHeader className="flex flex-col w-full justify-center items-center">
           <img
             src="/images/mehr_deutsch_logo.png"
@@ -97,7 +102,10 @@ export default function MobileSidebar() {
         {/* Navigation Links */}
         <nav className="flex flex-col gap-2 overflow-y-scroll">
           {sidebarNavLinks.map((link) => (
-            <div key={link.title}>
+            <div
+              key={link.title}
+              onClick={() => !link.collapsible && setOpen(false)}
+            >
               {link.collapsible ? (
                 <SidebarCollapsibleLink link={link} />
               ) : (

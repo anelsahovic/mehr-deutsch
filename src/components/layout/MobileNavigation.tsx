@@ -28,7 +28,7 @@ export default function MobileNavigation() {
   ];
 
   return (
-    <div className="fixed bottom-1 w-full h-16 z-50 py-1 px-2">
+    <div className="fixed bottom-1 w-full h-20 z-50 py-3 px-3">
       <div className="flex items-center justify-between w-full h-full p-4 rounded-full bg-gradient-to-b from-primary via-primary/70 to-primary/60 backdrop-blur-2xl shadow-lg z-40">
         {mobileNavLinks.map((link) => {
           const isActive =
