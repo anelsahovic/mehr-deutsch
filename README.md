@@ -1,5 +1,7 @@
 # Mehr Deutsch
 
+![demo-gif](https://github.com/user-attachments/assets/7ad48a38-df4b-4f1f-af24-9359362aeb03)
+
 Mehr Deutsch is a modern **React + TypeScript Progressive Web App (PWA)** designed to help users master German grammar — especially **noun gender** — through interactive practice cards, theory pages, and progress tracking.
 
 For now, the app includes the **Noun Gender Practice**, but more grammar topics and exercises will be added soon.
