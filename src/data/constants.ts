@@ -14,7 +14,7 @@ export const practiceTopics: PracticeTopic[] = [
   {
     id: 2,
     title: 'Verbs With Prepositions',
-    subtitle: 'Auf, Über, Für, Mit, Zu',
+    subtitle: 'Auf, Über, Für, An, Mit, Zu, Von, Um',
     description:
       'Learn how to use verbs with the correct reflexive pronouns and prepositions in everyday German sentences.',
     imageUrl:
@@ -22,7 +22,6 @@ export const practiceTopics: PracticeTopic[] = [
     path: '/topics/verbs-with-prepositions',
     available: true,
   },
-
   {
     id: 3,
     title: 'Cases',

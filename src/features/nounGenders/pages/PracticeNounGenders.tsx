@@ -75,7 +75,7 @@ export default function PracticeNounGenders() {
   };
 
   return (
-    <div className="min-h-dvh w-full max-w-4xl mx-auto flex flex-col justify-between gap-6 p-6 py-10">
+    <div className="min-h-dvh w-full max-w-3xl mx-auto flex flex-col justify-between gap-6 p-6 py-10">
       {/* Dialog when completed level */}
       <AlertDialog
         open={openLevelCompletedDialog}

@@ -15,7 +15,10 @@ export default function VerbsWithPrepositions() {
       <MobilePageHeader backPath="/topics" pageTitle={topic.title} />
 
       {/*topic quick info/action */}
-      <TopicInfoHeaderCard topic={topic} />
+      <TopicInfoHeaderCard
+        topic={topic}
+        path="/topics/verbs-with-prepositions/lobby"
+      />
 
       {/*topic page theory */}
       <VerbsWithPrepositionsTheory />
