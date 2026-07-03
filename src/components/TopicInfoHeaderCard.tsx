@@ -5,9 +5,13 @@ import { NavLink } from 'react-router';
 
 interface Props {
   topic: PracticeTopic;
+  path?: string;
 }
 
-export default function TopicInfoHeaderCard({ topic }: Props) {
+export default function TopicInfoHeaderCard({
+  topic,
+  path = `${topic.path}/practice`,
+}: Props) {
   return (
     <div className="relative w-full overflow-hidden z-30 rounded-xl bg-gradient-to-br from-amber-500 via-yellow-500 to-yellow-400 shadow-lg px-6 py-8 flex flex-col sm:flex-row items-center sm:items-start gap-6">
       {/* circle designs */}
@@ -35,7 +39,7 @@ export default function TopicInfoHeaderCard({ topic }: Props) {
       {/* Action Button block */}
       <div className="flex-shrink-0 flex items-center mt-6 sm:mt-0 z-20">
         <NavLink
-          to={`${topic.path}/practice`}
+          to={path}
           className="
         inline-flex items-center gap-2 
         px-5 py-3 

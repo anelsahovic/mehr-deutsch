@@ -13,6 +13,17 @@ export const practiceTopics: PracticeTopic[] = [
   },
   {
     id: 2,
+    title: 'Verbs With Prepositions',
+    subtitle: 'Auf, Über, Für, An, Mit, Zu, Von, Um',
+    description:
+      'Learn how to use verbs with the correct reflexive pronouns and prepositions in everyday German sentences.',
+    imageUrl:
+      '/images/practice_topics/thumbnails/reflexive_verbs_thumbnail.webp',
+    path: '/topics/verbs-with-prepositions',
+    available: true,
+  },
+  {
+    id: 3,
     title: 'Cases',
     subtitle: 'Nominativ, Akkusativ, Dativ, Genitiv',
     description:
@@ -22,7 +33,7 @@ export const practiceTopics: PracticeTopic[] = [
     available: false,
   },
   {
-    id: 3,
+    id: 4,
     title: 'Verb Conjugation',
     subtitle: 'Präsens, Präteritum, Perfekt',
     description: 'Master regular and irregular verb forms in different tenses.',
@@ -32,7 +43,7 @@ export const practiceTopics: PracticeTopic[] = [
     available: false,
   },
   {
-    id: 4,
+    id: 5,
     title: 'Prepositions',
     subtitle: 'mit, zu, für, bei, nach',
     description:
@@ -42,7 +53,7 @@ export const practiceTopics: PracticeTopic[] = [
     available: false,
   },
   {
-    id: 5,
+    id: 6,
     title: 'Sentence Structure',
     subtitle: 'Wortstellung, Fragen, Nebensatz',
     description:

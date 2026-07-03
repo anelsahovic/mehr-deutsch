@@ -6,6 +6,9 @@ import Topics from './pages/Topics';
 import About from './pages/About';
 import Help from './pages/Help';
 import PracticeNounGenders from './features/nounGenders/pages/PracticeNounGenders';
+import VerbsWithPrepositions from './features/verbsWithPrepositions/pages/VerbsWithPrepositions';
+import PracticeVerbsWithPrepositions from './features/verbsWithPrepositions/pages/PracticeVerbsWithPrepositions';
+import LobbyVerbsWithPrepositions from './features/verbsWithPrepositions/pages/LobbyVerbsWithPrepositions';
 
 function App() {
   return (
@@ -17,6 +20,10 @@ function App() {
         <Route path="topics">
           <Route index element={<Topics />} />
           <Route path="noun-genders" element={<NounGenders />} />
+          <Route
+            path="verbs-with-prepositions"
+            element={<VerbsWithPrepositions />}
+          />
         </Route>
 
         <Route path="about" element={<About />} />
@@ -24,9 +31,19 @@ function App() {
       </Route>
 
       {/* Standalone, layout-free route */}
+      {/*Noun Genders*/}
       <Route
         path="/topics/noun-genders/practice"
         element={<PracticeNounGenders />}
+      />
+      {/* Verbs with prepositions */}
+      <Route
+        path="/topics/verbs-with-prepositions/lobby"
+        element={<LobbyVerbsWithPrepositions />}
+      />
+      <Route
+        path="/topics/verbs-with-prepositions/practice"
+        element={<PracticeVerbsWithPrepositions />}
       />
     </Routes>
   );
