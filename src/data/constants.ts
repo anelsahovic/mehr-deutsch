@@ -18,7 +18,7 @@ export const practiceTopics: PracticeTopic[] = [
     description:
       'Learn how to use verbs with the correct reflexive pronouns and prepositions in everyday German sentences.',
     imageUrl:
-      '/images/practice_topics/thumbnails/reflexive_verbs_thumbnail.webp',
+      '/images/practice_topics/thumbnails/verb_prepositions_thumbnail.webp',
     path: '/topics/verbs-with-prepositions',
     available: true,
   },
